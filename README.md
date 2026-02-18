@@ -11,38 +11,71 @@ Provide the business rules and the data dictionary.
 ## Business Rules:
 
 The organization manages an international single-seater championship such as Formula 1.
+
 The championship is divided into seasons (usually one per year).
+
 Each season contains several race events called Grands Prix.
+
 Each Grand Prix takes place at one circuit and on scheduled dates.
+
 A circuit has a name, a location (country, city), a length and a number of laps for the race.
+
 Each Grand Prix belongs to exactly one season.
+
 A season has one official calendar listing all its Grands Prix.
+
 Teams participate in the championship for a full season.
+
 A team has a name, a nationality and a unique identifier.
+
 A team registers two main drivers for a season.
+
 A driver has a full name, date of birth, nationality and a permanent racing number.
+
 A driver may change teams between seasons.
+
 For each Grand Prix, drivers are entered by their team.
+
 Each Grand Prix weekend includes sessions (practice sessions, qualifying, race).
+
 Each session has a date, a start time and a type.
+
 The race session produces the official results for the Grand Prix.
+
 Each race result links one driver to one Grand Prix.
+
 A finishing position is recorded for each classified driver.
+
 Points are awarded based on finishing position according to an official scoring system.
+
 The scoring system may change from season to season.
+
 Drivers and teams accumulate points over a season.
+
 A driver championship ranking is established per season.
+
 A constructor (team) championship ranking is established per season.
+
 A driver may record fastest lap in a race.
+
 Fastest lap may grant additional points if regulations allow it.
+
 Not all drivers who start a race are necessarily classified as finishers.
+
 A driver can be marked as DNF (did not finish) or DSQ (disqualified).
+
 Weather conditions are recorded for each race.
+
 Incidents and penalties may be recorded for drivers during a race.
+
 A penalty can affect time or finishing position.
+
 The organization publishes official results and standings after validation.
+
 Historical data from past seasons must be preserved and accessible.
+
 External stakeholders (media, teams, public) consult published statistics.
+
 Teams such as Scuderia Ferrari are treated like any other team in the system.
 
 ## Data dictionnary:
