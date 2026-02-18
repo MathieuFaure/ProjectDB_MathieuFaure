@@ -1,4 +1,4 @@
-#### The prompt I used:
+## The prompt I used:
 
 
 
@@ -22,7 +22,7 @@ Provide the business rules and the data dictionary.
 
 
 
-#### Business rules
+## Business rules:
 
 
 
@@ -162,7 +162,7 @@ Teams such as Scuderia Ferrari are treated like any other team in the system.
 
 
 
-#### Data dictionnary
+## Data dictionnary:
 
 
 
