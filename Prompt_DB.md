@@ -165,74 +165,41 @@ Teams such as Scuderia Ferrari are treated like any other team in the system.
 ## Data dictionnary:
 
 
-
 | Meaning of the data                 | Type         | Size                 |
-
 | ----------------------------------- | ------------ | -------------------- |
-
 | Season year                         | Numeric      | 4 digits             |
-
 | Season start date                   | Date         | 10 char              |
-
 | Season end date                     | Date         | 10 char              |
-
 | Grand Prix name                     | Alphanumeric | 60 char              |
-
 | Grand Prix code                     | Alphanumeric | 10 char              |
-
 | Grand Prix date                     | Date         | 10 char              |
-
 | Circuit name                        | Alphanumeric | 60 char              |
-
 | Circuit city                        | Alphanumeric | 40 char              |
-
 | Circuit country                     | Alphanumeric | 40 char              |
-
 | Circuit length (km)                 | Decimal      | 5 digits, 2 decimals |
-
 | Number of race laps                 | Numeric      | 3 digits             |
-
 | Team name                           | Alphanumeric | 60 char              |
-
 | Team nationality                    | Alphanumeric | 40 char              |
-
 | Team identifier                     | Alphanumeric | 10 char              |
-
 | Driver full name                    | Alphanumeric | 60 char              |
-
 | Driver date of birth                | Date         | 10 char              |
-
 | Driver nationality                  | Alphanumeric | 40 char              |
-
 | Driver number                       | Numeric      | 2 digits             |
-
 | Session type                        | Alphanumeric | 20 char              |
-
 | Session date                        | Date         | 10 char              |
-
 | Session start time                  | Time         | 5 char               |
-
 | Finishing position                  | Numeric      | 2 digits             |
-
 | Grid position                       | Numeric      | 2 digits             |
-
 | Points awarded                      | Numeric      | 2 digits             |
-
 | Fastest lap time                    | Time         | 12 char              |
-
 | Fastest lap flag                    | Boolean      | 1 char               |
-
 | Classification status (FIN/DNF/DSQ) | Alphanumeric | 3 char               |
-
 | Weather condition                   | Alphanumeric | 30 char              |
-
 | Penalty type                        | Alphanumeric | 30 char              |
-
 | Penalty time (seconds)              | Numeric      | 4 digits             |
-
 | Driver season points total          | Numeric      | 4 digits             |
-
 | Team season points total            | Numeric      | 4 digits             |
+
 
 
 
