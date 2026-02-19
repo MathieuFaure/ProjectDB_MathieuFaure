@@ -114,3 +114,7 @@ Teams such as Scuderia Ferrari are treated like any other team in the system.
 | Penalty time (seconds)              | Numeric      | 4 digits             |
 | Driver season points total          | Numeric      | 4 digits             |
 | Team season points total            | Numeric      | 4 digits             |
+
+## My MCD:
+
+<img width="1392" height="1112" alt="image" src="https://github.com/user-attachments/assets/e934eb79-85d0-4561-b38e-342fb1764548" />
