@@ -125,7 +125,7 @@ CIRCUIT = (<ins>CircuitName</ins> VARCHAR(50), CircuitCity VARCHAR(50), CircuitC
 
 TEAM = (<ins>TeamID</ins> VARCHAR(50), TeamName VARCHAR(50), TeamNationality VARCHAR(50));
 
-SCORING_SYSTEM = (ScoringSystemID VARCHAR(50));
+SCORING_SYSTEM = (<ins>ScoringSystemID</ins> VARCHAR(50));
 
 DRIVER = (<ins>DriverNumber</ins> INT, DriverLastName VARCHAR(50), DriverFirstName VARCHAR(50), DriverDateOfBirth DATE, DriverNationality VARCHAR(50));
 
