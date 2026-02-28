@@ -145,5 +145,5 @@ PENALTY = (PenaltyID VARCHAR(50), PenaltyType VARCHAR(50), PenaltyTimeSeconds TI
 
 contract = (#SeasonYear, #TeamID, #DriverNumber);
 
-<p align="left"><ins>Texte souligné</ins></p>
+<ins>Texte souligné</ins>
 
