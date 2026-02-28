@@ -139,9 +139,9 @@ RACE_RESULT = (<ins>RaceResultID</ins> VARCHAR(50), FinishingPosition INT, GridP
 
 PENALTY = (<ins>PenaltyID</ins> VARCHAR(50), PenaltyType VARCHAR(50), PenaltyTimeSeconds TIME, #RaceResultID);
 
-DRIVER_SEASON_STANDING = (<ins>DriverSesonStandingID</ins> VARCHAR(50), DriverSeasonPointsTotal INT, #SeasonYear, #DriverNumber);
+DRIVER_SEASON_STANDING = (<ins>DriverSeasonStandingID</ins> VARCHAR(50), DriverSeasonPointsTotal INT, #SeasonYear, #DriverNumber);
 
-TEAM_SEASON_STANDING = (<ins>TeamSesonStandingID</ins> VARCHAR(50), TeamSeasonPointsTotal INT, #SeasonYear, #TeamID);
+TEAM_SEASON_STANDING = (<ins>TeamSeasonStandingID</ins> VARCHAR(50), TeamSeasonPointsTotal INT, #SeasonYear, #TeamID);
 
 contract = (<ins>#SeasonYear, #TeamID, #DriverNumber</ins>);
 
