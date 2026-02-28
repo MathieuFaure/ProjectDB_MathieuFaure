@@ -139,7 +139,7 @@ GRAND_PRIX = (<ins>GrandPrixID</ins> VARCHAR(50), GrandPrixName VARCHAR(50), Gra
 
 SESSION = (<ins>SessionID</ins> VARCHAR(50), SessionType VARCHAR(50), SessionDate DATE, SessionStartTime TIME, #GrandPrixID);
 
-RACE_RESULT = (<ins>DriverNumber</ins> INT, <ins>GrandPrixID</ins> VARCHAR(50), FinishingPosition INT, GridPosition INT, FastestLapTime TIME, FastestLapFlag LOGICAL, ClassificationStatus VARCHAR(50), #(SeasonYear, FinishingPosition_1), #DriverNumber_1, #GrandPrixID_1);
+RACE_RESULT = (<ins>DriverNumber</ins> INT, <ins>GrandPrixID</ins> VARCHAR(50), FinishingPosition INT, GridPosition INT, FastestLapTime TIME, FastestLapFlag LOGICAL, ClassificationStatus VARCHAR(50), #DriverNumber_1, #GrandPrixID_1);
 
 PENALTY = (<ins>PenaltyID</ins> VARCHAR(50), PenaltyType VARCHAR(50), PenaltyTimeSeconds TIME, #(DriverNumber, GrandPrixID));
 
