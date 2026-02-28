@@ -117,7 +117,7 @@ Teams such as Scuderia Ferrari are treated like any other team in the system.
 
 ## My MCD:
 
-<img width="1398" height="1130" alt="image" src="https://github.com/user-attachments/assets/3bdc97fa-1006-4cbb-a422-2ac1ae98ba42" />
+<img width="1400" height="1116" alt="image" src="https://github.com/user-attachments/assets/faf07d0e-e83d-4e03-9943-ebbbc7fa014e" />
 
 ## The LDM
 
@@ -125,11 +125,13 @@ CIRCUIT = (<ins>CircuitName</ins> VARCHAR(50), CircuitCity VARCHAR(50), CircuitC
 
 TEAM = (<ins>TeamID</ins> VARCHAR(50), TeamName VARCHAR(50), TeamNationality VARCHAR(50));
 
+SCORING_SYSTEM = (ScoringSystemID VARCHAR(50));
+
 DRIVER = (<ins>DriverNumber</ins> INT, DriverLastName VARCHAR(50), DriverFirstName VARCHAR(50), DriverDateOfBirth DATE, DriverNationality VARCHAR(50));
 
-SCORING_RULE = (<ins>ScoringRuleID</ins> VARCHAR(50), FinishingPosition INT, PointsValue INT);
+SCORING_RULE = (<ins>ScoringRuleID</ins> VARCHAR(50), FinishingPosition INT, PointsValue INT, #ScoringSystemID);
 
-SEASON = (<ins>SeasonYear</ins> INT, SeasonStartDate DATE, SeasonEndDate DATE, #ScoringRuleID, #SeasonYear_1*);
+SEASON = (<ins>SeasonYear</ins> INT, SeasonStartDate DATE, SeasonEndDate DATE, #ScoringRuleID, #SeasonYear_1*, #ScoringSystemID);
 
 GRAND_PRIX = (<ins>GrandPrixID</ins> VARCHAR(50), GrandPrixName VARCHAR(50), GrandPrixDate DATE, WeatherCondition VARCHAR(50), NumberOfRaceLaps INT, #CircuitName, #SeasonYear);
 
