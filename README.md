@@ -117,11 +117,9 @@ Teams such as Scuderia Ferrari are treated like any other team in the system.
 
 ## My MCD:
 
-<img width="1392" height="1112" alt="image" src="https://github.com/user-attachments/assets/e934eb79-85d0-4561-b38e-342fb1764548" />
+<img width="1398" height="1130" alt="image" src="https://github.com/user-attachments/assets/3bdc97fa-1006-4cbb-a422-2ac1ae98ba42" />
 
 ## The LDM
-
-SEASON = (<ins>SeasonYear</ins> INT, SeasonStartDate DATE, SeasonEndDate DATE, #SeasonYear_1*);
 
 CIRCUIT = (<ins>CircuitName</ins> VARCHAR(50), CircuitCity VARCHAR(50), CircuitCountry VARCHAR(50), CircuitLengthKm DECIMAL(5,2));
 
@@ -129,19 +127,22 @@ TEAM = (<ins>TeamID</ins> VARCHAR(50), TeamName VARCHAR(50), TeamNationality VAR
 
 DRIVER = (<ins>DriverNumber</ins> INT, DriverLastName VARCHAR(50), DriverFirstName VARCHAR(50), DriverDateOfBirth DATE, DriverNationality VARCHAR(50));
 
-DRIVER_SEASON_STANDING = (<ins>DriverNumber</ins> INT, <ins>SeasonYear</ins> INT, DriverSeasonPointsTotal INT, #SeasonYear_1, #DriverNumber_1);
+SCORING_RULE = (<ins>ScoringRuleID</ins> VARCHAR(50), FinishingPosition INT, PointsValue INT);
 
-TEAM_SEASON_STANDING = (<ins>TeamID</ins> VARCHAR(50), <ins>SeasonYear</ins> INT, TeamSeasonPointsTotal INT, #SeasonYear_1, #TeamID_1);
-
-SCORING_RULE = (<ins>SeasonYear</ins> INT, <ins>FinishingPosition</ins> INT, PointsValue INT, #SeasonYear_1);
+SEASON = (<ins>SeasonYear</ins> INT, SeasonStartDate DATE, SeasonEndDate DATE, #ScoringRuleID, #SeasonYear_1*);
 
 GRAND_PRIX = (<ins>GrandPrixID</ins> VARCHAR(50), GrandPrixName VARCHAR(50), GrandPrixDate DATE, WeatherCondition VARCHAR(50), NumberOfRaceLaps INT, #CircuitName, #SeasonYear);
 
 SESSION = (<ins>SessionID</ins> VARCHAR(50), SessionType VARCHAR(50), SessionDate DATE, SessionStartTime TIME, #GrandPrixID);
 
-RACE_RESULT = (<ins>DriverNumber</ins> INT, <ins>GrandPrixID</ins> VARCHAR(50), FinishingPosition INT, GridPosition INT, FastestLapTime TIME, FastestLapFlag LOGICAL, ClassificationStatus VARCHAR(50), #DriverNumber_1, #GrandPrixID_1);
+RACE_RESULT = (<ins>RaceResultID</ins> VARCHAR(50), FinishingPosition INT, GridPosition INT, FastestLapTime TIME, FastestLapFlag LOGICAL, ClassificationStatus VARCHAR(50), #DriverNumber, #GrandPrixID);
 
-PENALTY = (<ins>PenaltyID</ins> VARCHAR(50), PenaltyType VARCHAR(50), PenaltyTimeSeconds TIME, #(DriverNumber, GrandPrixID));
+PENALTY = (<ins>PenaltyID</ins> VARCHAR(50), PenaltyType VARCHAR(50), PenaltyTimeSeconds TIME, #RaceResultID);
+
+DRIVER_SEASON_STANDING = (<ins>DriverSesonStandingID</ins> VARCHAR(50), DriverSeasonPointsTotal INT, #SeasonYear, #DriverNumber);
+
+TEAM_SEASON_STANDING = (<ins>TeamSesonStandingID</ins> VARCHAR(50), TeamSeasonPointsTotal INT, #SeasonYear, #TeamID);
 
 contract = (<ins>#SeasonYear, #TeamID, #DriverNumber</ins>);
+
 
