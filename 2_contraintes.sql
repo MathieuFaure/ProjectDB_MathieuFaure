@@ -19,3 +19,5 @@ ALTER TABLE DRIVER_SEASON_STANDING ADD CONSTRAINT CK_DriverSeasonPoints_Positive
 ALTER TABLE TEAM_SEASON_STANDING ADD CONSTRAINT CK_TeamSeasonPoints_Positive CHECK (TeamSeasonPointsTotal >= 0);
 
 ALTER TABLE SCORING_RULE ADD CONSTRAINT CK_ScoringPoints_Positive CHECK (PointsValue >= 0 AND FinishingPosition > 0);
+
+ALTER TABLE SESSION ADD CONSTRAINT CK_Session_Status CHECK (SessionType IN ('FP1', 'FP2', 'FP3', 'Qualifying', 'Sprint', 'Race'));
