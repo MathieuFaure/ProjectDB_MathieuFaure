@@ -131,7 +131,7 @@ DRIVER = (<ins>DriverNumber</ins> INT, DriverLastName VARCHAR(50), DriverFirstNa
 
 SCORING_RULE = (<ins>ScoringRuleID</ins> VARCHAR(50), FinishingPosition INT, PointsValue INT, #ScoringSystemID);
 
-SEASON = (<ins>SeasonYear</ins> INT, SeasonStartDate DATE, SeasonEndDate DATE, #ScoringRuleID, #SeasonYear_1*, #ScoringSystemID);
+SEASON = (<ins>SeasonYear</ins> INT, SeasonStartDate DATE, SeasonEndDate DATE, #SeasonYear_1*, #ScoringSystemID);
 
 GRAND_PRIX = (<ins>GrandPrixID</ins> VARCHAR(50), GrandPrixName VARCHAR(50), GrandPrixDate DATE, WeatherCondition VARCHAR(50), NumberOfRaceLaps INT, #CircuitName, #SeasonYear);
 
