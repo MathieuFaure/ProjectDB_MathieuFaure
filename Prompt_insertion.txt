@@ -1,0 +1,72 @@
+Provide the insertion queries used to populate the database, whose relational model is as follows:
+CIRCUIT = (CircuitName VARCHAR(50), CircuitCity VARCHAR(50), CircuitCountry VARCHAR(50), CircuitLengthKm DECIMAL(5,2));
+Primary key : CircuitName.
+TEAM = (TeamID VARCHAR(50), TeamName VARCHAR(50), TeamNationality VARCHAR(50));
+Primary key : TeamID.
+SCORING_SYSTEM = (ScoringSystemID VARCHAR(50));
+Primary key : ScoringSystemID.
+DRIVER = (DriverNumber INT, DriverLastName VARCHAR(50), DriverFirstName VARCHAR(50), DriverDateOfBirth DATE, DriverNationality VARCHAR(50));
+Primary key : DriverNumber.
+SCORING_RULE = (ScoringRuleID VARCHAR(50), FinishingPosition INT, PointsValue INT, #ScoringSystemID);
+Primary key : ScoringRuleID.
+SEASON = (SeasonYear INT, SeasonStartDate DATE, SeasonEndDate DATE, #SeasonYear_1*, #ScoringSystemID);
+Primary key : SeasonYear.
+GRAND_PRIX = (GrandPrixID VARCHAR(50), GrandPrixName VARCHAR(50), GrandPrixDate DATE, WeatherCondition VARCHAR(50), NumberOfRaceLaps INT, #CircuitName, #SeasonYear);
+Primary key : GrandPrixID.
+SESSION = (SessionID VARCHAR(50), SessionType VARCHAR(50), SessionDate DATE, SessionStartTime TIME, #GrandPrixID);
+Primary key : SeasonID.
+RACE_RESULT = (RaceResultID VARCHAR(50), FinishingPosition INT, GridPosition INT, FastestLapTime TIME, FastestLapFlag LOGICAL, ClassificationStatus VARCHAR(50), #DriverNumber, #GrandPrixID);
+Primary key : RaceResultID.
+PENALTY = (PenaltyID VARCHAR(50), PenaltyType VARCHAR(50), PenaltyTimeSeconds TIME, #RaceResultID);
+Primary key : PenaltyID.
+DRIVER_SEASON_STANDING = (DriverSeasonStandingID VARCHAR(50), DriverSeasonPointsTotal INT, #SeasonYear, #DriverNumber);
+Primary key : DriverSeasonStandingID.
+TEAM_SEASON_STANDING = (TeamSeasonStandingID VARCHAR(50), TeamSeasonPointsTotal INT, #SeasonYear, #TeamID);
+Primary key : TeamSeasonStandingID.
+contract = (#SeasonYear, #TeamID, #DriverNumber);
+Primary key : SeasonYear, TeamID, DriverNumber.
+
+Primary keys correspond to IDs, unless otherwise specified (when it is a composite attribute). Foreign keys are identified by # and have the same name as the primary keys to which they refer.
+There must be: 
+-	24 rows for the CIRCUIT table
+-	10 rows for the TEAM table
+-	1 row for the SCORING_SYSTEM table
+-	20 rows for the DRIVER table (two drivers per team)
+-	10 rows for the SCORING_RULE table (positions 1 to 10),
+-	2 rows for the SEASON table
+-	24 rows for the GRAND_PRIX table
+-	As much rows as you need for the SESSION table
+-	As much rows as you need for the RACE_RESULT table
+-	At least 25 penalties distributed across different races
+-	20 driver season standings
+-	10 team season standings
+-	And each driver must have a contract for at least one season.
+The teams are: Mclaren, Ferrari, Aston Martin, Red Bull, Mercedes, Alpine, Williams, Audi, Racing Bull and Haas.
+Foreign keys must refer to existing primary keys: provide the lines starting with filling in the tables in which there are no foreign keys, then the tables in which the foreign keys refer to primary keys in tables that have already been filled in. 
+
+The data must comply with the following validation constraints:
+ALTER TABLE CIRCUIT ADD CONSTRAINT CK_CircuitLengthKm_Positive CHECK (CircuitLengthKm > 0);
+
+ALTER TABLE SEASON ADD CONSTRAINT CK_SeasonDates CHECK (SeasonEndDate >= SeasonStartDate);
+
+ALTER TABLE GRAND_PRIX ADD CONSTRAINT CK_GrandPrixLaps CHECK (NumberOfRaceLaps > 0);
+
+ALTER TABLE RACE_RESULT ADD CONSTRAINT CK_FinishingPosition_Positive CHECK (FinishingPosition IS NULL OR FinishingPosition > 0);
+
+ALTER TABLE RACE_RESULT ADD CONSTRAINT CK_ClassificationStatus CHECK (ClassificationStatus IN ('classified', 'DNF', 'DSQ'));
+
+ALTER TABLE RACE_RESULT ADD CONSTRAINT CK_FastestLapFlag CHECK (FastestLapFlag IN (0,1));
+
+ALTER TABLE PENALTY ADD CONSTRAINT CK_PenaltyTime_Positive CHECK (PenaltyTimeSeconds IS NULL OR PenaltyTimeSeconds >= 0);
+
+ALTER TABLE DRIVER_SEASON_STANDING ADD CONSTRAINT CK_DriverSeasonPoints_Positive CHECK (DriverSeasonPointsTotal >= 0);
+
+ALTER TABLE TEAM_SEASON_STANDING ADD CONSTRAINT CK_TeamSeasonPoints_Positive CHECK (TeamSeasonPointsTotal >= 0);
+
+ALTER TABLE SCORING_RULE ADD CONSTRAINT CK_ScoringPoints_Positive CHECK (PointsValue >= 0 AND FinishingPosition > 0);
+
+ALTER TABLE SESSION ADD CONSTRAINT CK_Session_Status CHECK (SessionType IN ('FP1', 'FP2', 'FP3', 'Qualifying', 'Sprint', 'Race'));
+
+Make sure that the drivers’ first and last names refer to various origins and are mixed. 
+
+Provide the set in the form of an SQL script ready to be executed.
