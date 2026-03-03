@@ -151,9 +151,13 @@ contract = (<ins>#SeasonYear, #TeamID, #DriverNumber</ins>);
 ## User scenario
 
 User: Sporting director of an F1 team (for instance Mclaren)
+
 Objectives: Analyze the performances of his drivers and his team, compare with opponents, and prepare strategy for next races.
+
 He could need to see the points earned by the pilots and by the different teams, to see which type of car is performing the best. He would be able to identify the pilots who realize the fastest lap so that the team can draw inspiration from his driving style. The director could the see the different penalties inflicted, so they know where to be careful. Also, he will of course be able to compare the performances in relation to the weather or in relation to the type of circuit (slow turns/fast turns, sunny/raining).
+
 List of data to be extracted:
+
 1)	Projections and selections
 -	Drivers of a Specific Team with Total Season Points
 -	Final Classification of a Specific Grand Prix
