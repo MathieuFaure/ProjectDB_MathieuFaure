@@ -148,3 +148,36 @@ TEAM_SEASON_STANDING = (<ins>TeamSeasonStandingID</ins> VARCHAR(50), TeamSeasonP
 contract = (<ins>#SeasonYear, #TeamID, #DriverNumber</ins>);
 
 
+## User scenario
+
+User: Sporting director of an F1 team (for instance Mclaren)
+Objectives: Analyze the performances of his drivers and his team, compare with opponents, and prepare strategy for next races.
+He could need to see the points earned by the pilots and by the different teams, to see which type of car is performing the best. He would be able to identify the pilots who realize the fastest lap so that the team can draw inspiration from his driving style. The director could the see the different penalties inflicted, so they know where to be careful. Also, he will of course be able to compare the performances in relation to the weather or in relation to the type of circuit (slow turns/fast turns, sunny/raining).
+List of data to be extracted:
+1)	Projections and selections
+-	Drivers of a Specific Team with Total Season Points
+-	Final Classification of a Specific Grand Prix
+-	Drivers with at Least One Fastest Lap
+-	Grand Prix Races Held Under Rainy Conditions
+-	Drivers with at Least One Top 5 Finish
+
+2)	Aggregation queries
+-	Number of Races Participated in by Each Driver
+-	Average Season Points per Driver
+-	Number of Penalties per Penalty Type
+-	Number of DNFs and DSQs per Driver
+-	Total Season Points per Team
+
+3)	Join queries
+-	Drivers and Their Contracted Teams
+-	Grand Prix Races and Their Corresponding Circuits
+-	Complete Race Results with Team Information
+-	Drivers and Their Penalties (Including Drivers Without Penalties)
+-	Number of Classified Drivers per Grand Prix
+
+4)	Nested queries
+-	Drivers Who Have Never Finished Outside the Top 10
+-	Grand Prix Races Where a Specific Driver Achieved Fastest Lap
+-	Drivers with More Than Two Penalties
+-	Drivers Who Have Never Been Disqualified (DSQ)
+-	Grand Prix Races with Fewer Than 15 Classified Drivers
